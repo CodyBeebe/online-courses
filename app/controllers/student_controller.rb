@@ -1,6 +1,6 @@
 class StudentController < ApplicationController
 	def index
-		@data = get_org_info
+		#@data = get_org_info
 	end
 
   def grade

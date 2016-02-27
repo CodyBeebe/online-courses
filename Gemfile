@@ -8,6 +8,9 @@ gem 'mysql'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# Carrierwave File Upload Handler
+gem 'carrierwave'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
