@@ -1,27 +1,79 @@
-<% if !flash[:notice].blank? %>
-  <div class="alert alert-info">
-  <%= flash[:notice] %>
-  </div>
-<% end %>
-<br />
-<%= link_to "New Submission", new_submission_path, class: "btn btn-primary" %>
-<br />
-<br />
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Download Link</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @submissions.each do |submission| %>
-      <tr>
-        <td><%= submission.name %></td>
-        <td><%= link_to "Download Submission", submission.attachment_url %></td>
-        <td><%= button_to "Delete",  submission, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{submission.name}?" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+
+	<!-- View Instructions -->
+	<div class="row">
+		<div class="col-lg-12">
+			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#InstructionsModal">View Instructions</button>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div id="InstructionsModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+		  <!-- Modal content-->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		    	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		      <h4 class="modal-title">Assignment Instructions</h4>
+		    </div>
+		    <div class="modal-body">
+		      <object type="application/pdf" data="http://www.inkwelleditorial.com/pdfSample.pdf" width="100%" height="500">This is not working as expected!</object>
+		    </div>
+		    <div class="modal-footer">
+		      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		    </div>
+		  </div>
+		  
+		</div>
+	</div>
+	
+	</br>
+	
+	<!-- Upload File -->	
+	<% if !@submissions[0] %>
+		<%= link_to "New Submission", new_submission_path, class: "btn btn-primary" %>
+	<% end %>
+	
+	</br>
+	
+	<!-- Current Submission -->
+	<% @submissions.each do |submission| %>
+		<div class="row">
+			<div class="col-lg-2">
+				<p>CurrentSubmission: </p>
+			</div>
+			<div class="col-lg-2">
+				<%= link_to submission.name, submission.attachment_url %>
+			</div>
+			<div class="col-lg-8">
+				<%= button_to "Delete",  submission, method: :delete, class: "btn btn-danger" %>
+			</div>
+		</div>
+	<% end %>
+	
+	</br>
+	
+	<!-- Grade Button -->
+	<div class="row">
+		<div class="col-lg-12">
+			<button type="button" class="btn btn-success">Grade</button>
+		</div>
+	</div>
+	
+	</br>
+	
+	<!-- View Results -->
+	<div class="row">
+		<div class="col-lg-12">
+			<button type="button" class="btn btn-info">View Results</button>
+		</div>
+	</div>
+	
+	</br>
+	
+</div>
+
+
+
+

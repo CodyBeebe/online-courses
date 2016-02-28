@@ -8,10 +8,14 @@ class SubmissionsController < ApplicationController
   end
 
   def create
+  	@submission = Submission.first
+  	if @submission
+    	@submission.destroy
+    end
     @submission = Submission.new(submission_params)
 
     if @submission.save
-      redirect_to submissions_path, notice: "The submission #{@submission.name} has been uploaded."
+      redirect_to submissions_path
     else
       render "new"
     end
@@ -20,7 +24,7 @@ class SubmissionsController < ApplicationController
   def destroy
     @submission = Submission.find(params[:id])
     @submission.destroy
-    redirect_to submissions_path, notice:  "The submission #{@submission.name} has been deleted."
+    redirect_to submissions_path
   end
 
 private
