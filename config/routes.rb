@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "submissions#index"
   
   # Eliminates the need for GETs
-  resources :submissions, only: [:index, :new, :create, :destroy]
+  resources :submissions
   
   #root 'student#index'
 	
