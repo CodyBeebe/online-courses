@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20160310195337) do
     t.string  "specs_file_name", limit: 255
     t.integer "submit_limit",    limit: 4
     t.string  "context",         limit: 255, null: false
-    t.integer "instructor",      limit: 4,   null: false
   end
 
   add_index "assessments", ["context"], name: "index_assessments_on_context", unique: true, using: :btree

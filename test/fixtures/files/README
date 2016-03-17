@@ -1,0 +1,3 @@
+The files folder is where any files that will be uploaded in the test environment go.
+
+When uploaded, they will be put in subdirectories like normal but under the test diriectory.
